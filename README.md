@@ -1,5 +1,7 @@
 # Claude Checkpoint System
 
+[![CI](https://github.com/jeremyeder/claude-checkpoint-system/actions/workflows/ci.yml/badge.svg)](https://github.com/jeremyeder/claude-checkpoint-system/actions/workflows/ci.yml)
+
 A token-efficient checkpoint/restore system for Claude Code that uses GitHub issues to maintain session state and avoid auto-compaction costs.
 
 ## 🎯 Problem Solved
@@ -10,18 +12,31 @@ Claude Code's auto-compaction feature consumes significant tokens. This system p
 
 ### 1. Install in Your Project
 
+#### Automated Installation (Recommended)
+
+```bash
+# Clone the checkpoint system
+git clone https://github.com/jeremyeder/claude-checkpoint-system.git
+
+# Run the installer from your project directory
+cd your-project
+../claude-checkpoint-system/scripts/install.sh
+```
+
+#### Manual Installation
+
 ```bash
 # Create required directories
 mkdir -p .github/ISSUE_TEMPLATE
 
 # Copy the issue template
-cp templates/claude-session.yml .github/ISSUE_TEMPLATE/
+cp claude-checkpoint-system/templates/claude-session.yml .github/ISSUE_TEMPLATE/
 
 # Copy the state file template
-cp templates/CLAUDE_STATE.md.template ./CLAUDE_STATE.md
+cp claude-checkpoint-system/templates/CLAUDE_STATE.md.template ./CLAUDE_STATE.md
 
 # Add checkpoint instructions to your CLAUDE.md
-cat templates/CLAUDE.md.snippet >> CLAUDE.md
+cat claude-checkpoint-system/templates/CLAUDE.md.snippet >> CLAUDE.md
 ```
 
 ### 2. Create Session Issue
@@ -76,6 +91,19 @@ claude-checkpoint-system/
 - ✅ Searchable checkpoint history
 - ✅ No external dependencies
 - ✅ Version control friendly
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+./tests/test_install.sh
+```
+
+The CI pipeline runs:
+- Shell script linting with shellcheck
+- Basic functionality tests
+- Template validation
 
 ## 🤝 Contributing
 

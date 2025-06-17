@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up test environment
+      run: |
+        chmod +x scripts/install.sh
+        chmod +x tests/test_install.sh
+        
+    - name: Run shellcheck on install script
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y shellcheck
+        shellcheck scripts/install.sh
+        
+    - name: Run basic functionality tests
+      run: |
+        ./tests/test_install.sh
+        
+    - name: Validate templates
+      run: |
+        # Check that required template files exist
+        [ -f templates/claude-session.yml ] || exit 1
+        [ -f templates/CLAUDE_STATE.md.template ] || exit 1  
+        [ -f templates/CLAUDE.md.snippet ] || exit 1
+        echo "✅ All template files exist"
+        
+        # Validate YAML syntax
+        python3 -c "import yaml; yaml.safe_load(open('templates/claude-session.yml'))"
+        echo "✅ YAML template is valid"
