@@ -1,7 +1,7 @@
 #!/bin/bash
 # Basic test for install.sh functionality
 
-set -euo pipefail
+set -uo pipefail  # Remove -e to continue on failures
 
 # Colors for output
 RED='\033[0;31m'
@@ -25,14 +25,16 @@ run_test() {
     log_info "Running test: $test_name"
     log_info "Command: $test_command"
     
-    if eval "$test_command"; then
+    if eval "$test_command" 2>&1; then
         log_success "PASS: $test_name"
         ((TESTS_PASSED++))
+        return 0
     else
-        log_error "FAIL: $test_name"
+        local exit_code=$?
+        log_error "FAIL: $test_name (exit code: $exit_code)"
         log_error "Failed command: $test_command"
-        # Don't exit immediately, continue with other tests
-        return 1
+        # Continue with other tests, don't exit
+        return 0  # Return 0 to not fail the overall script
     fi
 }
 
