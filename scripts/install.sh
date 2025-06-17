@@ -114,7 +114,8 @@ create_backup() {
 get_script_dir() {
     local source="${BASH_SOURCE[0]}"
     while [ -L "$source" ]; do
-        local dir="$(cd -P "$(dirname "$source")" && pwd)"
+        local dir
+        dir="$(cd -P "$(dirname "$source")" && pwd)"
         source="$(readlink "$source")"
         [[ $source != /* ]] && source="$dir/$source"
     done
@@ -141,8 +142,10 @@ safe_replace() {
     local replace="$3"
     
     # Escape special characters for sed
-    local escaped_search=$(printf '%s\n' "$search" | sed 's/[[\.*^$()+?{|]/\\&/g')
-    local escaped_replace=$(printf '%s\n' "$replace" | sed 's/[[\.*^$(){}+?|/]/\\&/g')
+    local escaped_search
+    local escaped_replace
+    escaped_search=$(printf '%s\n' "$search" | sed "s/[[\.*^$()+?{|]/\\&/g")
+    escaped_replace=$(printf '%s\n' "$replace" | sed "s/[[\.*^$(){}+?|/]/\\&/g")
     
     if [ -f "$file" ]; then
         sed -i.bak "s/$escaped_search/$escaped_replace/g" "$file" || {
