@@ -2,13 +2,30 @@
 
 [![CI](https://github.com/jeremyeder/claude-checkpoint-system/actions/workflows/ci.yml/badge.svg)](https://github.com/jeremyeder/claude-checkpoint-system/actions/workflows/ci.yml)
 
-A token-efficient checkpoint/restore system for Claude Code that uses GitHub issues to maintain session state and avoid auto-compaction costs.
+A token-efficient checkpoint/restore system for Claude Code. Choose your complexity level:
+
+- **🚀 Simple Version**: One file, 30-second setup, zero dependencies
+- **🏢 Full Version**: GitHub integration, templates, team collaboration
 
 ## 🎯 Problem Solved
 
 Claude Code's auto-compaction feature consumes significant tokens. This system provides an external state management solution using GitHub issues, allowing you to preserve context across sessions without token overhead.
 
 ## 🚀 Quick Start
+
+### Option 1: Simple Version (Recommended for most users)
+
+```bash
+# One-line install - creates just CLAUDE_STATE.md
+curl -sSL https://raw.githubusercontent.com/jeremyeder/claude-checkpoint-system/main/simple-install.sh | bash
+```
+
+**Usage:**
+1. Tell Claude: "Read CLAUDE_STATE.md and continue from the last checkpoint"
+2. Update the file as you work
+3. That's it!
+
+### Option 2: Full Version (For teams and complex projects)
 
 ### 1. Install in Your Project
 
@@ -88,9 +105,22 @@ claude-checkpoint-system/
 - ✅ Saves significant token costs
 - ✅ Preserves complete session history
 - ✅ Works across Claude Code restarts
-- ✅ Searchable checkpoint history
-- ✅ No external dependencies
 - ✅ Version control friendly
+
+## 📊 Version Comparison
+
+| Feature | Simple | Full |
+|---------|--------|------|
+| **Setup time** | 30 seconds | 5+ minutes |
+| **Files created** | 1 | 4+ |
+| **GitHub dependency** | None | Issues required |
+| **Offline usage** | ✅ | ❌ |
+| **Team collaboration** | Basic | ✅ Advanced |
+| **Maintenance** | Zero | Update issue + file |
+| **Templates** | Minimal | Comprehensive |
+
+**Choose Simple if:** Personal projects, quick setup, minimal maintenance  
+**Choose Full if:** Team projects, structured history, GitHub integration
 
 ## 🧪 Testing
 
