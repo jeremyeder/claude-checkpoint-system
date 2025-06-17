@@ -1,0 +1,72 @@
+name: Claude Code Session Tracker
+description: Persistent issue for tracking Claude Code session history
+title: "[CLAUDE SESSION] Project Development Log"
+labels: ["claude-session", "development-log"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📋 Session Tracking Issue
+        
+        This issue serves as a persistent log for Claude Code sessions. Each checkpoint will be added as a comment below.
+        
+        **Instructions:**
+        1. Keep this issue open throughout the project
+        2. Add checkpoints as comments using the format below
+        3. Reference the CLAUDE_STATE.md file for current state
+        
+        ### Comment Format for Checkpoints:
+        ```
+        ## 🔖 Checkpoint: [Date] [Time]
+        
+        **Session Summary:** Brief description of session goals
+        
+        **Completed:**
+        - ✅ Task 1
+        - ✅ Task 2
+        
+        **In Progress:**
+        - 🔄 Task 3
+        
+        **Next Steps:**
+        - ⏳ Task 4
+        
+        **Key Decisions:**
+        - Decision 1 and rationale
+        
+        **Modified Files:**
+        - file1.ts - Description
+        - file2.md - Description
+        
+        **Commit Range:** abc123..def456
+        ```
+  
+  - type: input
+    id: project_name
+    attributes:
+      label: Project Name
+      description: Name of the project being developed
+      placeholder: "life-with-llm-d-book"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: project_goals
+    attributes:
+      label: Overall Project Goals
+      description: High-level objectives for this development effort
+      placeholder: |
+        - Build comprehensive LLM-D book website
+        - Implement interactive code examples
+        - Create deployment pipeline
+    validations:
+      required: true
+  
+  - type: input
+    id: start_date
+    attributes:
+      label: Session Start Date
+      description: When this tracking began
+      value: "2025-06-17"
+    validations:
+      required: true
