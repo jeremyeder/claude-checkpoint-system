@@ -1,0 +1,53 @@
+# Claude Code Session State
+
+> This file tracks the current state of Claude Code sessions to enable quick context restoration without token-heavy auto-compaction.
+
+## 🎯 Current Focus
+Working on creating a checkpoint/restore system using GitHub issues to avoid auto-compaction token costs.
+
+## 📊 Session Info
+- **Started:** 2025-06-17
+- **Last Updated:** 2025-06-17
+- **Active Branch:** main
+- **Session Issue:** [Create after first checkpoint]
+
+## ✅ Completed Tasks
+- Explored checkpoint/restore strategies
+- Designed hybrid approach using persistent issue + state file
+- Created Claude session issue template
+
+## 🔄 In Progress
+- Implementing checkpoint system
+- Creating CLAUDE_STATE.md structure
+
+## 📋 TODO Queue
+```
+[ ] Create first checkpoint as issue comment
+[ ] Test restore workflow
+[ ] Document usage instructions
+[ ] Create automation scripts (optional)
+```
+
+## 🧠 Context & Decisions
+- **Approach:** Using single persistent GitHub issue with checkpoint comments
+- **Rationale:** Avoids issue spam while maintaining searchable history
+- **State File:** This CLAUDE_STATE.md provides quick current status
+- **Issue Comments:** Detailed checkpoint history with full context
+
+## 📁 Key Files
+- `.github/ISSUE_TEMPLATE/claude-session.yml` - Session tracking issue template
+- `CLAUDE_STATE.md` - Current state (this file)
+
+## 🔗 Important Links
+- Session Issue: [To be created]
+- Project Repo: https://github.com/[username]/life-with-llm-d-book
+
+## 💡 Restore Instructions
+To restore context in a new Claude Code session:
+1. Read this CLAUDE_STATE.md file
+2. Check the linked session issue for recent checkpoints
+3. Review the "In Progress" and "TODO Queue" sections
+4. Continue from where the last session ended
+
+---
+*Last checkpoint: Initial setup - no checkpoints yet*
