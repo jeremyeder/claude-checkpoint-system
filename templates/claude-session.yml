@@ -46,7 +46,7 @@ body:
     attributes:
       label: Project Name
       description: Name of the project being developed
-      placeholder: "life-with-llm-d-book"
+      placeholder: "my-awesome-project"
     validations:
       required: true
   

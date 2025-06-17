@@ -40,7 +40,7 @@ Working on creating a checkpoint/restore system using GitHub issues to avoid aut
 
 ## 🔗 Important Links
 - Session Issue: [To be created]
-- Project Repo: https://github.com/[username]/life-with-llm-d-book
+- Project Repo: https://github.com/[REPO_OWNER]/[REPO_NAME]
 
 ## 💡 Restore Instructions
 To restore context in a new Claude Code session:
