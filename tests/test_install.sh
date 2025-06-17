@@ -23,12 +23,15 @@ run_test() {
     
     ((TESTS_RUN++))
     log_info "Running test: $test_name"
+    log_info "Command: $test_command"
     
     if eval "$test_command"; then
         log_success "PASS: $test_name"
         ((TESTS_PASSED++))
     else
         log_error "FAIL: $test_name"
+        log_error "Failed command: $test_command"
+        # Don't exit immediately, continue with other tests
         return 1
     fi
 }
@@ -36,6 +39,12 @@ run_test() {
 # Get the directory of this script to find project root
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+
+# Debug: Print paths for troubleshooting
+log_info "SCRIPT_DIR: $SCRIPT_DIR"
+log_info "PROJECT_ROOT: $PROJECT_ROOT"
+log_info "Contents of PROJECT_ROOT:"
+ls -la "$PROJECT_ROOT" || true
 
 # Create a temporary test directory
 TEST_DIR=$(mktemp -d)
