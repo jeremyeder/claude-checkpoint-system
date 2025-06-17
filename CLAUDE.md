@@ -1,8 +1,5 @@
-# For Your Project's CLAUDE.md File
+# Claude Checkpoint System Project Instructions
 
-Add this section to any project's CLAUDE.md:
-
-```markdown
 ## Always Use Checkpoint System
 
 To avoid auto-compaction token costs, ALWAYS use this checkpoint/restore process:
@@ -39,4 +36,30 @@ When creating a checkpoint, add a comment to the session issue:
 Tell me: "Restore context from checkpoint system" and I will read CLAUDE_STATE.md and the session issue.
 
 **IMPORTANT**: This is required for all work in this repository to maintain continuity and avoid token waste.
-```
+
+## Project-Specific Context
+
+### Current Focus
+This is the Claude Checkpoint System project itself. We are improving the system's quality based on a comprehensive code review.
+
+### Key Priority Areas
+1. **Security**: Fix vulnerabilities in install.sh script
+2. **Quality**: Remove hardcoded references and improve error handling
+3. **Documentation**: Add missing files (LICENSE, etc.)
+4. **Testing**: Add integration tests
+
+### Session Issue
+- **GitHub Issue:** [To be created]
+- **Repository:** https://github.com/jeremyeder/claude-checkpoint-system
+
+### Development Guidelines
+- Always run tests before committing (when they exist)
+- Follow security best practices in all scripts
+- Update CLAUDE_STATE.md frequently
+- Create checkpoints before major changes
+
+### Quality Standards
+- No hardcoded values in templates
+- Proper input validation in scripts
+- Error handling with rollback capabilities
+- Cross-platform compatibility considerations
