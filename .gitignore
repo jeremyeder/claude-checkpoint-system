@@ -13,3 +13,6 @@ Thumbs.db
 *.tmp
 *.bak
 .temp/
+
+# Claude checkpoint system state files (local session state)
+CLAUDE_STATE.md
