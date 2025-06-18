@@ -6,8 +6,21 @@ The Claude Checkpoint System can now be installed with **zero external dependenc
 
 ## Quick Start
 
-1. **Add to your CLAUDE.md**: Copy the checkpoint system section from [`templates/CLAUDE_SELF_CONTAINED.md`](templates/CLAUDE_SELF_CONTAINED.md)
-2. **That's it!** Claude will automatically bootstrap the system when it reads your CLAUDE.md
+### Option 1: Simple Import (Recommended)
+1. **Download template**: Copy [`CLAUDE_SELF_CONTAINED.md`](templates/CLAUDE_SELF_CONTAINED.md) to your project's `templates/` directory
+2. **Add 4 lines to CLAUDE.md**:
+   ```markdown
+   ## Claude Checkpoint System
+   
+   @templates/CLAUDE_SELF_CONTAINED.md
+   
+   **IMPORTANT**: This system auto-initializes when Claude reads this CLAUDE.md file. No manual setup required!
+   ```
+3. **Done!** Clean and maintainable.
+
+### Option 2: Direct Embed
+1. **Add to your CLAUDE.md**: Copy the full content from [`templates/CLAUDE_SELF_CONTAINED.md`](templates/CLAUDE_SELF_CONTAINED.md)
+2. **That's it!** Works but creates a large CLAUDE.md file.
 
 ## How It Works
 
