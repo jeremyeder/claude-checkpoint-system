@@ -1,9 +1,22 @@
 # Claude Code Session State
 
 ## 🎯 Current Focus
-Successfully created dual-version Claude Checkpoint System - both simple and full versions are complete and ready for users.
+Working on claude-checkpoint-system development. Successfully implemented and merged the self-contained checkpoint system approach.
 
 ## ⏰ Recent Checkpoints
+### 2025-06-18 14:45 - Upgraded to self-contained system
+- Merged feature/claude-md-self-contained to main
+- Implemented 4-line installation via CLAUDE.md imports
+- Added slash commands: /save, /restore, /status
+- Upgraded this repo to use the new self-contained system
+- System now uses @templates/CLAUDE_SELF_CONTAINED.md import
+
+### 2025-06-18 14:22 - Self-contained system completed
+- Created CLAUDE_SELF_CONTAINED.md template with auto-bootstrap
+- Added simple import option (4 lines vs 100+ lines)
+- Copy-pasteable quickstart with curl command
+- Working examples in examples/demo-project/
+- Zero dependencies - works anywhere
 
 ### 2025-06-17 15:00 - Simplified system completed
 - Created SIMPLE_CLAUDE_STATE.md template (single file approach)
@@ -11,52 +24,21 @@ Successfully created dual-version Claude Checkpoint System - both simple and ful
 - Updated README.md with version comparison
 - Added SIMPLE_README.md with usage guide
 - System now offers both simple and full complexity options
-- Next: Final testing and documentation review
-
-### 2025-06-17 14:30 - Security and quality fixes completed
-- Fixed all security vulnerabilities in install.sh
-- Removed hardcoded references
-- Added MIT LICENSE file
-- Added comprehensive error handling and rollback
-- Templates improved and validated
-- Next: Create simplified version
-
-### 2025-06-17 13:00 - Quality review completed
-- Identified critical security issues and improvement areas
-- Started fixing hardcoded references and vulnerabilities
-- Next: Implement security fixes
 
 ## 📋 Active Tasks
-- [x] Create simplified single-file version
-- [x] Fix security vulnerabilities
-- [x] Remove hardcoded references  
-- [x] Add LICENSE file
-- [ ] Final testing of both versions
-- [ ] Create uninstall script (optional)
+- [x] Create self-contained CLAUDE.md installation method
+- [x] Add slash commands for checkpoint operations
+- [x] Merge self-contained system to main
+- [x] Upgrade this repo to use new system
+- [ ] Update main README to highlight new installation method
+- [ ] Create migration guide for existing users
 
 ## 🧠 Key Context
 - **Branch:** main
-- **Two versions:** Simple (1 file, 30s setup) + Full (GitHub integration)
-- **Files created:** simple-install.sh, SIMPLE_CLAUDE_STATE.md, SIMPLE_README.md
-- **Major achievement:** 90% complexity reduction while maintaining functionality
+- **Status:** Self-contained checkpoint system successfully implemented
+- **Setup:** Using @templates/CLAUDE_SELF_CONTAINED.md import in CLAUDE.md
+- **Installation:** Now possible with just 4 lines + 1 curl command
 - **Repository:** https://github.com/jeremyeder/claude-checkpoint-system
 
 ---
-
-## 💡 How to Use This File
-
-### For Claude:
-- **Session start:** Read this file first to understand current state
-- **During work:** Update "Current Focus" and add checkpoints frequently
-- **Session end:** Add final checkpoint before ending
-
-### Checkpoint Format:
-```
-### YYYY-MM-DD HH:MM - Brief description
-- What was completed
-- What's next
-- Files changed: file1.js, file2.md
-```
-
-### Restore Context:
-Tell Claude: "Read CLAUDE_STATE.md and continue from the last checkpoint"
+*Recovery: "Read CLAUDE_STATE.md and continue from the last checkpoint"*
